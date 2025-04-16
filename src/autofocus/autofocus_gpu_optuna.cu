@@ -1158,66 +1158,70 @@ void grid_cuda_focus_SAR_image(const SAR_Aperture<__nTp> &sar_data,
             // Start with trial
             bounds_json << "{\n\t\"ntrials\": " << n_trials << ",\n";
     
-            // bounds_json << "\t\"xCoeffs0\": {\n\t\t\"low\": " << xCoeffs[0] << ",\n";
-            // bounds_json << "\t\t\"high\": " << xCoeffs[0] << "\n\t},\n";
-    
-            // bounds_json << "\t\"xCoeffs1\": {\n\t\t\"low\": " << xCoeffs[1] - gridDiff << ",\n";
-            // bounds_json << "\t\t\"high\": " << xCoeffs[1] + gridDiff << "\n\t},\n";
-            
-            // bounds_json << "\t\"xCoeffs2\": {\n\t\t\"low\": " << xCoeffs[2] - gridDiff/2 << ",\n";
-            // bounds_json << "\t\t\"high\": " << xCoeffs[2] + gridDiff/2 << "\n\t},\n";
-
-            // bounds_json << "\t\"yCoeffs0\": {\n\t\t\"low\": " << yCoeffs[0] << ",\n";
-            // bounds_json << "\t\t\"high\": " << yCoeffs[0] << "\n\t},\n";
-    
-            // bounds_json << "\t\"yCoeffs1\": {\n\t\t\"low\": " << yCoeffs[1] - gridDiff << ",\n";
-            // bounds_json << "\t\t\"high\": " << yCoeffs[1] + gridDiff << "\n\t},\n";
-            
-            // bounds_json << "\t\"yCoeffs2\": {\n\t\t\"low\": " << yCoeffs[2] - gridDiff/2 << ",\n";
-            // bounds_json << "\t\t\"high\": " << yCoeffs[2] + gridDiff/2 << "\n\t},\n";
-
-            // bounds_json << "\t\"zCoeffs0\": {\n\t\t\"low\": " << zCoeffs[0] << ",\n";
-            // bounds_json << "\t\t\"high\": " << zCoeffs[0] << "\n\t},\n";
-    
-            // bounds_json << "\t\"zCoeffs1\": {\n\t\t\"low\": " << zCoeffs[1] - gridDiff << ",\n";
-            // bounds_json << "\t\t\"high\": " << zCoeffs[1] + gridDiff << "\n\t},\n";
-            
-            // bounds_json << "\t\"zCoeffs2\": {\n\t\t\"low\": " << zCoeffs[2] - gridDiff/2 << ",\n";
-            // bounds_json << "\t\t\"high\": " << zCoeffs[2] + gridDiff/2 << "\n\t},\n";
-
-            // bounds_json << "\t\"vel_percent\": {\n\t\t\"low\": " << 0.9 << ",\n";
-            // bounds_json << "\t\t\"high\": " << 1.1 << "\n\t}\n";
-
             bounds_json << "\t\"xCoeffs0\": {\n\t\t\"low\": " << xCoeffs[0] << ",\n";
             bounds_json << "\t\t\"high\": " << xCoeffs[0] << "\n\t},\n";
     
-            bounds_json << "\t\"xCoeffs1\": {\n\t\t\"low\": " << xCoeffs[1]  << ",\n";
-            bounds_json << "\t\t\"high\": " << xCoeffs[1]  << "\n\t},\n";
+            bounds_json << "\t\"xCoeffs1\": {\n\t\t\"low\": " << xCoeffs[1] - gridDiff << ",\n";
+            bounds_json << "\t\t\"high\": " << xCoeffs[1] + gridDiff << "\n\t},\n";
             
-            bounds_json << "\t\"xCoeffs2\": {\n\t\t\"low\": " << xCoeffs[2]  << ",\n";
-            bounds_json << "\t\t\"high\": " << xCoeffs[2]  << "\n\t},\n";
+            bounds_json << "\t\"xCoeffs2\": {\n\t\t\"low\": " << xCoeffs[2] - gridDiff/2 << ",\n";
+            bounds_json << "\t\t\"high\": " << xCoeffs[2] + gridDiff/2 << "\n\t},\n";
 
             bounds_json << "\t\"yCoeffs0\": {\n\t\t\"low\": " << yCoeffs[0] << ",\n";
             bounds_json << "\t\t\"high\": " << yCoeffs[0] << "\n\t},\n";
     
-            bounds_json << "\t\"yCoeffs1\": {\n\t\t\"low\": " << yCoeffs[1]  << ",\n";
-            bounds_json << "\t\t\"high\": " << yCoeffs[1]  << "\n\t},\n";
+            bounds_json << "\t\"yCoeffs1\": {\n\t\t\"low\": " << yCoeffs[1] - gridDiff << ",\n";
+            bounds_json << "\t\t\"high\": " << yCoeffs[1] + gridDiff << "\n\t},\n";
             
-            bounds_json << "\t\"yCoeffs2\": {\n\t\t\"low\": " << yCoeffs[2]  << ",\n";
-            bounds_json << "\t\t\"high\": " << yCoeffs[2]  << "\n\t},\n";
+            bounds_json << "\t\"yCoeffs2\": {\n\t\t\"low\": " << yCoeffs[2] - gridDiff/2 << ",\n";
+            bounds_json << "\t\t\"high\": " << yCoeffs[2] + gridDiff/2 << "\n\t},\n";
 
             bounds_json << "\t\"zCoeffs0\": {\n\t\t\"low\": " << zCoeffs[0] << ",\n";
             bounds_json << "\t\t\"high\": " << zCoeffs[0] << "\n\t},\n";
     
-            bounds_json << "\t\"zCoeffs1\": {\n\t\t\"low\": " << zCoeffs[1]  << ",\n";
-            bounds_json << "\t\t\"high\": " << zCoeffs[1]  << "\n\t},\n";
+            bounds_json << "\t\"zCoeffs1\": {\n\t\t\"low\": " << zCoeffs[1] - gridDiff << ",\n";
+            bounds_json << "\t\t\"high\": " << zCoeffs[1] + gridDiff << "\n\t},\n";
             
-            bounds_json << "\t\"zCoeffs2\": {\n\t\t\"low\": " << zCoeffs[2]  << ",\n";
-            bounds_json << "\t\t\"high\": " << zCoeffs[2]  << "\n\t},\n";
+            bounds_json << "\t\"zCoeffs2\": {\n\t\t\"low\": " << zCoeffs[2] - gridDiff/2 << ",\n";
+            bounds_json << "\t\t\"high\": " << zCoeffs[2] + gridDiff/2 << "\n\t},\n";
 
-            bounds_json << "\t\"vel_percent\": {\n\t\t\"low\": " << 1 << ",\n";
-            bounds_json << "\t\t\"high\": " << 1 << "\n\t}\n";
+            bounds_json << "\t\"vel_percent\": {\n\t\t\"low\": " << 0.9 << ",\n";
+            bounds_json << "\t\t\"high\": " << 1.1 << "\n\t}\n";
+
+            // ***********************************************************
+            // Verify test
+
+            // bounds_json << "\t\"xCoeffs0\": {\n\t\t\"low\": " << xCoeffs[0] << ",\n";
+            // bounds_json << "\t\t\"high\": " << xCoeffs[0] << "\n\t},\n";
+    
+            // bounds_json << "\t\"xCoeffs1\": {\n\t\t\"low\": " << xCoeffs[1]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << xCoeffs[1]  << "\n\t},\n";
             
+            // bounds_json << "\t\"xCoeffs2\": {\n\t\t\"low\": " << xCoeffs[2]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << xCoeffs[2]  << "\n\t},\n";
+
+            // bounds_json << "\t\"yCoeffs0\": {\n\t\t\"low\": " << yCoeffs[0] << ",\n";
+            // bounds_json << "\t\t\"high\": " << yCoeffs[0] << "\n\t},\n";
+    
+            // bounds_json << "\t\"yCoeffs1\": {\n\t\t\"low\": " << yCoeffs[1]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << yCoeffs[1]  << "\n\t},\n";
+            
+            // bounds_json << "\t\"yCoeffs2\": {\n\t\t\"low\": " << yCoeffs[2]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << yCoeffs[2]  << "\n\t},\n";
+
+            // bounds_json << "\t\"zCoeffs0\": {\n\t\t\"low\": " << zCoeffs[0] << ",\n";
+            // bounds_json << "\t\t\"high\": " << zCoeffs[0] << "\n\t},\n";
+    
+            // bounds_json << "\t\"zCoeffs1\": {\n\t\t\"low\": " << zCoeffs[1]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << zCoeffs[1]  << "\n\t},\n";
+            
+            // bounds_json << "\t\"zCoeffs2\": {\n\t\t\"low\": " << zCoeffs[2]  << ",\n";
+            // bounds_json << "\t\t\"high\": " << zCoeffs[2]  << "\n\t},\n";
+
+            // bounds_json << "\t\"vel_percent\": {\n\t\t\"low\": " << 1 << ",\n";
+            // bounds_json << "\t\t\"high\": " << 1 << "\n\t}\n";
+            
+            // **************************************************************************
             bounds_json << "}" << std::endl;
             bounds_json.close();
         } else {
