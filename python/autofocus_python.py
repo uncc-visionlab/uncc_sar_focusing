@@ -6,6 +6,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from focusalg_BP import focusalg_BP
 from dft_error_func import error_func
+import time
 
 # Any important variables
 CLIGHT = 299792458.0
@@ -138,8 +139,10 @@ def objective(trial):
     # return -np.mean(scipy.stats.entropy(Iout, axis=0))
 
 study = optuna.create_study()
-study.optimize(objective, n_trials=10000, n_jobs=4, gc_after_trial=True)
-
+start = time.time()
+study.optimize(objective, n_trials=30, n_jobs=4, gc_after_trial=True)
+end = time.time()
+print(f"Optuna took {end-start} seconds")
 best_params = study.best_params
 ant_x = p_x[0] + best_params["p_x1"] * temp_x + best_params["p_x2"] * temp_x ** 2
 ant_y = p_y[0] + best_params["p_y1"] * temp_x + best_params["p_y2"] * temp_x ** 2
